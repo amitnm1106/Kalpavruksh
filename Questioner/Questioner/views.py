@@ -2,6 +2,7 @@ from django.shortcuts import render_to_response, render
 from models import *
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect, HttpResponse, HttpRequest, JsonResponse
+from django.db.models import Sum
 
 
 def get_questions(request, api_key):
@@ -29,3 +30,20 @@ def get_questions(request, api_key):
         "status": True,
     })
 
+
+def dashboard_data(request):
+    total_que = Question.objects.all().count()
+    total_ans = Answer.objects.all().count()
+    total_users = User.objects.all().count()
+
+    return JsonResponse({
+        "total_que": total_que,
+        "total_ans": total_ans,
+        "total_users": total_users,
+        "tenent_api_counts": [{
+            "count":  TApiCount.objects.filter(tenant=tenant).aggregate(Sum('request_count'))['request_count__sum'],
+            "name": tenant.name,
+            "api_key": tenant.api_key
+        } for tenant in Tenant.objects.all()],
+        "status": True,
+    })
