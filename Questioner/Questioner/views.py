@@ -4,9 +4,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect, HttpResponse, HttpRequest, JsonResponse
 
 
-
 def get_questions(request, api_key):
-    print api_key
     try:
         Tenant.objects.get(api_key=api_key)
     except ObjectDoesNotExist:
