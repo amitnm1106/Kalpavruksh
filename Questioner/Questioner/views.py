@@ -5,6 +5,9 @@ from django.http import HttpResponseRedirect, HttpResponse, HttpRequest, JsonRes
 from django.db.models import Sum
 
 
+def landing_page(request):
+    return render_to_response('html_templates/landing_page.html')
+
 def get_questions(request, api_key):
     try:
         Tenant.objects.get(api_key=api_key)
