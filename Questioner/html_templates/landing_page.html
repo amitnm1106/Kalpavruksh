@@ -226,100 +226,100 @@
 </head>
 {% verbatim %}
 <body ng-cloak ng-app="kalpavrukshApp" ng-controller="kalpavrukshControllers">
-        <div class="container dad" style="width: 100%; padding: 0;">
-            <div class="row" style="margin: 60px 0; text-align: center;">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <p style="color: #fcfcfc; font-weight: 700; font-size: 36px; font-family: 'Karla', san-serif;">Dashboard<span style="font-size: 16px; font-family: 'Karla', san-serif;"><br/>DASHBOARD SUMMERY</span></p>
-                </div>
-            </div>
-            <div class="row" style="margin: 60px 0; text-align: center;">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="text-align: center;">
-                    <a class="fig">
-                        {{data.total_users}}
-                        <span style="font-size: 14px; font-family: 'Karla', san-serif;"><br/>USERS</span>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="text-align: center;">
-                    <a class="fig">
-                        {{data.total_que}}
-                        <span style="font-size: 14px; font-family: 'Karla', san-serif;"><br/>QUESTIONS</span>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="text-align: center;">
-                    <a class="fig">
-                        {{data.total_ans}}
-                        <span style="font-size: 14px; font-family: 'Karla', san-serif;"><br/>ANSWERS</span>
-                    </a>
-                </div>
+    <div class="container dad" style="width: 100%; padding: 0;">
+        <div class="row" style="margin: 60px 0; text-align: center;">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <p style="color: #fcfcfc; font-weight: 700; font-size: 36px; font-family: 'Karla', san-serif;">Dashboard<span style="font-size: 16px; font-family: 'Karla', san-serif;"><br/>DASHBOARD SUMMERY</span></p>
             </div>
         </div>
-        <div class="row">
-            <section class="container">
-                <h1>Tenant Api Count</h1>
-                <div class="row" ng-if="$index % 2 == 0" ng-repeat="tenent in data.tenent_api_counts">
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <article class="card fl-left">
-                            <section class="date">
-                                <time datetime="23th feb">
-                                    <span>{{tenent.count ? tenent.count:0}}</span><span>API Count</span>
-                                </time>
-                            </section>
-                            <section class="card-cont">
-                                <small>Tenant</small>
-                                <h3>{{tenent.name}}</h3>
-                                <div class="even-info">
-                                    <i class="fa fa-map-marker"></i>
-                                    <p>
-                                        {{tenent.api_key}}
-                                    </p>
-                                </div>
-                                <div class="even-date">
-                                    <i class="fa fa-calendar"></i>
-                                    <time>
-                                        <span>{{date | date:'medium'}}</span>
-                                    </time>
-                                </div>
-                                <a href="/get_questions/{{tenent.api_key}}" target="_blank">API</a>
-                            </section>
-                        </article>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" ng-if="data.tenent_api_counts.length > ($index + 1)">
-                        <article class="card fl-left">
-                            <section class="date">
-                                <time datetime="23th feb">
-                                    <span>{{tenent.count ? tenent.count:0}}</span><span>API Count</span>
-                                </time>
-                            </section>
-                            <section class="card-cont">
-                                <small>Tenant</small>
-                                <h3>{{tenent.name}}</h3>
-                                <div class="even-info">
-                                    <i class="fa fa-map-marker"></i>
-                                    <p>
-                                        {{tenent.api_key}}
-                                    </p>
-                                </div>
-                                <div class="even-date">
-                                    <i class="fa fa-calendar"></i>
-                                    <time>
-                                        <span>{{date | date:'medium'}}</span>
-                                    </time>
-                                </div>
-                                <a href="/get_questions/{{tenent.api_key}}" target="_blank">API</a>
-                            </section>
-                        </article>
-                    </div>
-                </div>
-            </section>
+        <div class="row" style="margin: 60px 0; text-align: center;">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="text-align: center;">
+                <a class="fig">
+                    {{data.total_users}}
+                    <span style="font-size: 14px; font-family: 'Karla', san-serif;"><br/>USERS</span>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="text-align: center;">
+                <a class="fig">
+                    {{data.total_que}}
+                    <span style="font-size: 14px; font-family: 'Karla', san-serif;"><br/>QUESTIONS</span>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="text-align: center;">
+                <a class="fig">
+                    {{data.total_ans}}
+                    <span style="font-size: 14px; font-family: 'Karla', san-serif;"><br/>ANSWERS</span>
+                </a>
+            </div>
         </div>
+    </div>
+    <div class="row">
+        <section class="container">
+            <h1>Tenant Api Count</h1>
+            <div class="row" ng-if="$index % 2 == 0" ng-repeat="tenent in data.tenent_api_counts">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <article class="card fl-left">
+                        <section class="date">
+                            <time>
+                                <span>{{tenent.count ? tenent.count:0}}</span><span>API Count</span>
+                            </time>
+                        </section>
+                        <section class="card-cont">
+                            <small>Tenant</small>
+                            <h3>{{tenent.name}}</h3>
+                            <div class="even-info">
+                                <i class="fa fa-map-marker"></i>
+                                <p>
+                                    {{tenent.api_key}}
+                                </p>
+                            </div>
+                            <div class="even-date">
+                                <i class="fa fa-calendar"></i>
+                                <time>
+                                    <span>{{date | date:'medium'}}</span>
+                                </time>
+                            </div>
+                            <a href="/get_questions/{{tenent.api_key}}" target="_blank">API</a>
+                        </section>
+                    </article>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" ng-if="data.tenent_api_counts.length > ($index + 1)">
+                    <article class="card fl-left" ng-init="tenent=data.tenent_api_counts[$index + 1]">
+                        <section class="date">
+                        <time>
+                                <span>{{tenent.count ? tenent.count:0}}</span><span>API Count</span>
+                            </time>
+                        </section>
+                        <section class="card-cont">
+                            <small>Tenant</small>
+                            <h3>{{tenent.name}}</h3>
+                            <div class="even-info">
+                                <i class="fa fa-map-marker"></i>
+                                <p>
+                                    {{tenent.api_key}}
+                                </p>
+                            </div>
+                            <div class="even-date">
+                                <i class="fa fa-calendar"></i>
+                                <time>
+                                    <span>{{date | date:'medium'}}</span>
+                                </time>
+                            </div>
+                            <a href="/get_questions/{{tenent.api_key}}" target="_blank">API</a>
+                        </section>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </div>
 
-{% endverbatim %}
-<script src="static/js/jquery.js"></script>
-<script src="static/js/bootstrap.min.js"></script>
-<script src="static/js/angular.min.js"></script>
-<script src="static/js/kalpavruksh.js"></script>
-<script src="static/js/angular-ui-notification.min.js"></script>
-<script src="static/js/loading-bar.min.js"></script>
+    {% endverbatim %}
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/angular.min.js"></script>
+    <script src="static/js/kalpavruksh.js"></script>
+    <script src="static/js/angular-ui-notification.min.js"></script>
+    <script src="static/js/loading-bar.min.js"></script>
 </body>
 
 </html>
