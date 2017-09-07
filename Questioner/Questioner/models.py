@@ -19,7 +19,7 @@ class Question(Base):
     private = models.BooleanField(default=False)
 
     def __unicode__(self):
-        return "{}".format(self.title)
+        return "{}".format(self.title.encode('ascii', errors='replace'))
    
 class Answer(Base):
     body = models.TextField()
@@ -27,7 +27,7 @@ class Answer(Base):
     question = models.ForeignKey(Question)
 
     def __unicode__(self):
-        return "{}".format(self.body)
+        return "{}".format(self.body.encode('ascii', errors='replace'))
 
 class Tenant(Base):
     name = models.CharField(max_length=50)
